@@ -19,7 +19,7 @@ const Movie = ({ movie, viewInfo }) => {
         <div className="card-image waves-effect waves-block waves-light">
           <img
             width="200"
-            alt={`The movie titled: ${movie.title}`}
+            alt={`The movie titled: ${movie.title ?movie.title:movie.name}`}
             src={moviePoster}
             className="movieImage"
           />

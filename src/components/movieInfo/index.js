@@ -1,15 +1,21 @@
 import React from "react";
 
 const MovieInfo = ({ closeMovieInfo, currentMovie }) => {
-  const { poster_path, title, overview, release_date } = currentMovie;
+  const { poster_path, title,name,known_for_department, overview, release_date ,media_type,profile_path} = currentMovie;
 
   const DEFAULT_PLACEHOLDER_IMAGE =
     "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
   const imageUrl = "http://image.tmdb.org/t/p/w185";
+  
+  let currentMoviePoster = DEFAULT_PLACEHOLDER_IMAGE;
+  if(media_type === 'person' && profile_path) {
+    currentMoviePoster = `${imageUrl}${profile_path}`;
+  } else if(poster_path) {
+    currentMoviePoster = `${imageUrl}${poster_path}`;
+  }
 
-  const currentMoviePoster = poster_path
-    ? `${imageUrl}${poster_path}`
-    : DEFAULT_PLACEHOLDER_IMAGE;
+
+
   return (
     <div className="container">
       <div data-testid="closeMovie" className="row closeMovie" onClick={closeMovieInfo}>
@@ -20,16 +26,17 @@ const MovieInfo = ({ closeMovieInfo, currentMovie }) => {
         <div className="col s12 m4">
           <img
             width="200"
-            alt={`The movie titled: ${title}`}
+            alt={`The movie titled: ${title?title:name}`}
             src={currentMoviePoster}
             className="movieImage"
           />
         </div>
         <div className="col s12 m8">
           <div className="info-container">
-            <p>{title}</p>
+            <p>{title?title:name}</p>
             <p>{release_date}</p>
-            <p>{overview}</p>
+            <p>{overview?overview:known_for_department}</p>
+           
           </div>
         </div>
       </div>
