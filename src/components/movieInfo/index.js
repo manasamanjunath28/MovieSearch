@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from 'prop-types';
 const MovieInfo = ({ closeMovieInfo, currentMovie }) => {
   const { poster_path, title,name,known_for_department, overview, release_date ,media_type,profile_path} = currentMovie;
 
@@ -43,5 +43,19 @@ const MovieInfo = ({ closeMovieInfo, currentMovie }) => {
     </div>
   );
 };
+
+MovieInfo.propTypes = {
+    currentMovie: PropTypes.array,
+    media_type:PropTypes.string,
+    profile_path:PropTypes.string,
+    poster_path:PropTypes.string,
+    movie:PropTypes.object,
+    title:PropTypes.string,
+    name:PropTypes.string,
+    known_for_department:PropTypes.string, 
+    overview:PropTypes.string, 
+    release_date:PropTypes.string,
+    closeMovieInfo:PropTypes.func
+  };
 
 export default MovieInfo;

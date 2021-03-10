@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import PropTypes from 'prop-types';
 const Search = ({ onSearch }) => {
   const [searchValue, setSearchValue] = useState("");
   const searchRef = useRef(null);
@@ -32,4 +32,7 @@ const Search = ({ onSearch }) => {
   );
 };
 
+Search.propTypes = {
+  onSearch:PropTypes.func
+};
 export default Search;

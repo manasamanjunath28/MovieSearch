@@ -1,6 +1,6 @@
 import React from "react";
 import Movie from "../movie";
-
+import PropTypes from 'prop-types';
 const MovieList = ({ movies, viewMovieInfo }) => {
     return (
         <div className="container">
@@ -14,4 +14,8 @@ const MovieList = ({ movies, viewMovieInfo }) => {
         </div>
     )
 }
+MovieList.propTypes = {
+    movies: PropTypes.array,
+    viewMovieInfo:PropTypes.func
+  };
 export default MovieList;

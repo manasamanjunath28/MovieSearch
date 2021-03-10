@@ -1,6 +1,6 @@
 
 import React from "react";
-
+import PropTypes from 'prop-types';
 
 const Radio = ({ onSelectType }) => {
 
@@ -43,4 +43,7 @@ const Radio = ({ onSelectType }) => {
         </div>
     )
 }
+Radio.propTypes = {
+    onSelectType:PropTypes.func
+  };
 export default Radio;
