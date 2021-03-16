@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 
 import Header from "../src/components/header";
 import Search from "../src/components/serach";
@@ -21,6 +21,7 @@ const App = () => {
     const MOVIE_API_URL = "https://api.themoviedb.org/3/search/multi?api_key=";
     setLoading(false);
     setErrorMessage(null);
+    setSetFilterType(null);
     const movieData = await fetch(
       `${MOVIE_API_URL}${APIKey}&query=${searchValue}`
     );
@@ -34,6 +35,8 @@ const App = () => {
       setLoading(false);
     }
   };
+
+
 
   const movieInfoHandler = (id) => {
     const filteredMovie = list.filter((movie) => movie.id === id);
