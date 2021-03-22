@@ -25,7 +25,7 @@ const Movie = ({ movie, viewInfo }) => {
           />
           <div className="card-content">
             <p>
-              <a href="#" onClick={() => viewInfo(movie.id)}>
+              <a href="index" onClick={() => viewInfo(movie.id)}>
                 View Details
               </a>
             </p>
